@@ -1,13 +1,15 @@
 
 class Graph {
-  constructor(val) {
-    this.val = val;
-    this.neighbors = new Array();
-
+  constructor() {
+    this.adjList = {};
   }
 
   addVertex(vertex) {
-    this.val = vertex;
+    if (this.adjList.hasOwnProperty(vertex)) {
+      return
+    } else {
+      this.adjList[vertex] = [];
+    }
   }
 
   addEdges(srcValue, destValue) {
