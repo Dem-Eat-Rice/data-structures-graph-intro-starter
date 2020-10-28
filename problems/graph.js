@@ -11,26 +11,50 @@ class Graph {
       this.adjList[vertex] = [];
     }
   }
+  //{a: ["c"], b: []}
+  // addEdges(srcValue, destValue) {
+  //   if (!this.adjList[srcValue]) {
+  //     this.adjList[srcValue] = [destValue];
+  //     // this.adjList[destValue] = [srcValue]
+  //   }
 
-  addEdges(srcValue, destValue) {
-    // Code goes here ...
-  }
+    // if (!this.adjList[destValue]) {
+    //   this.adjList[destValue] = [srcValue];
+    // } else {
+    //   this.adjList[destValue] = [...this.adjList[srcValue], srcValue];
+    // }
 
-  buildGraph(edges) {
-    // Code goes here ...
-  }
 
-  breadthFirstTraversal(startingVertex) {
-    // Code goes here ...
-  }
+    //{a: ["c"], b: []}
+    addEdges(srcValue, destValue) {
+      if (!this.adjList[destValue]) {
+        this.addVertex(destValue);
+      };
+      if (!this.adjList[srcValue]) {
+        this.addVertex(srcValue);
+      };
 
-  depthFirstTraversalIterative(startingVertex) {
-    // Code goes here ...
-  }
+      this.adjList[srcValue] = [...this.adjList[srcValue], destValue];
+      this.adjList[destValue] = [...this.adjList[destValue], srcValue];
 
-  depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
-    // Code goes here ...
-  }
+
+}
+
+buildGraph(edges) {
+  // Code goes here ...
+}
+
+breadthFirstTraversal(startingVertex) {
+  // Code goes here ...
+}
+
+depthFirstTraversalIterative(startingVertex) {
+  // Code goes here ...
+}
+
+depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
+  // Code goes here ...
+}
 
 }
 
