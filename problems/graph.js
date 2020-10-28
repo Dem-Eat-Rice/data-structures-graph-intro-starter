@@ -37,11 +37,13 @@ class Graph {
       this.adjList[srcValue] = [...this.adjList[srcValue], destValue];
       this.adjList[destValue] = [...this.adjList[destValue], srcValue];
 
-
 }
 
 buildGraph(edges) {
-  // Code goes here ...
+for (let i = 0 ; i < edges.length; i++) {
+  this.addEdges(edges[i][0], edges[i][1])
+}
+return this.adjList
 }
 
 breadthFirstTraversal(startingVertex) {
