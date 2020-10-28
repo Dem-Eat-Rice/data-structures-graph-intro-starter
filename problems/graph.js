@@ -1,11 +1,13 @@
 
 class Graph {
-  constructor() {
-    // Code goes here ...
+  constructor(val) {
+    this.val = val;
+    this.neighbors = new Array();
+
   }
 
   addVertex(vertex) {
-    // Code goes here ...
+    this.val = vertex;
   }
 
   addEdges(srcValue, destValue) {
@@ -33,12 +35,3 @@ class Graph {
 module.exports = {
   Graph
 };
-
-
-
-
-
-
-
-
-
