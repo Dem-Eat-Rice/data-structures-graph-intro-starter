@@ -63,14 +63,37 @@ return Array.from(visited);
 }
 
 
-depthFirstTraversalIterative(startingVertex) {
-
+depthFirstTraversalIterative(startingVertex) { //{a: [b,g]}
+let visited = new Set();
+let stack = [startingVertex]
+while (stack.length) {
+  let popped = stack.pop()
+  if (visited.has(popped)) {
+    continue
+  } else {
+    visited.add(popped)
+    stack.push(...this.adjList[popped])
+  }
+}
+return Array.from(visited);
 }
 
-depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
-  // Code goes here ...
-}
+depthFirstTraversalRecursive(startingVertex, visited = new Set()) {
+let vertices = [startingVertex]
+let i = vertices.length - 1
+let ughhh  = vertices.pop()
+  // let test = vertices.pop() //vertices [b,c,d,]
+  if (visited.has(ughhh)) {
+return;
+  }
+    visited.add(ughhh)
+    vertices.push(...this.adjList[ughhh])
 
+  this.depthFirstTraversalRecursive(vertices[i], visited)
+
+// if (vertices.length == 0) {
+return Array.from(visited)}
+// }
 }
 
 module.exports = {
